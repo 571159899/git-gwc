@@ -1,0 +1,64 @@
+<!--pages/fs/fs.wxml-->
+<!-- 地址开始 -->
+<view class="content">
+<view class="content_dz1">
+<text class="tex1">蜜雪商城</text>
+<text class="tex2">您距离当前门店22.2KM</text>
+</view>
+<view class="content_dz2">
+<view class="tex1">取餐时间</view>
+<view class="tex1 tex1css">
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <view class="picker">
+      {{array[index]}}>
+    </view>
+  </picker>
+</view>
+</view>
+<view class="content_dz2">
+<view class="tex1">用餐方式</view>
+<view class="content_dz3">
+<view class="submit">
+<van-radio-group value="{{ radio }}" bind:change="onChange">
+  <van-radio name="1" checked-color="red">打包带走</van-radio>
+  <van-radio name="2" checked-color="red">店内用餐</van-radio>
+</van-radio-group>
+</view>
+<view class="submita text">为了您和家人的健康，建议选择打包带走</view>
+</view>
+</view>
+</view>
+<!-- 地址结束 -->
+<!-- 商品开始 -->
+<view class="content">
+<view class="content_mx tex1">商品明细</view>
+<view class="for">
+<view wx:for='{{lists}}'  wx:if='{{item.num}}'>
+<text>{{item.new}}</text>
+<text class="jia">{{item.num}}</text>
+<text>¥{{item.price}}</text>
+</view>
+</view>
+<view class="content_mx">
+<text>优惠券</text>
+<text>暂无可用</text>
+</view>
+<view class="pay">
+共 <text>{{alls}}</text>件商品，小计： <text class="tex1 pay1">¥{{prics}}</text>
+</view>
+</view>
+<!-- 商品结束 -->
+<!-- 备注开始 -->
+<view class="content">
+<view class="content_mx">
+<text>备注</text>
+<text bindtap="jump">{{demand}}></text>
+</view>
+</view>
+<!-- 备注结束 -->
+<!-- 支付开始 -->
+<view class="pag">
+<text class="tex1 pay1">¥{{prics}}</text>
+<text class="btn">去支付</text>
+</view>
+<!-- 支付结束 -->

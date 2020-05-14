@@ -1,0 +1,7 @@
+<!--pages/remarks/remarks.wxml-->
+<view>
+   <form bindsubmit="bindFormSubmit">
+    <textarea placeholder="请填写备注信息（最多50个字）" name="textarea" class="text"/>
+    <button form-type="submit" type="warn" class="btn"> 提交 </button>
+  </form>
+</view>

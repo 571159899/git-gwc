@@ -1,0 +1,93 @@
+.content {
+  display: flex;
+  flex-direction: row;
+  font-family: "Microsoft YaHei"
+}
+.left {
+  width: 30%;
+  height: 500px;
+  background-color: #F4F4F4;
+}
+.left view {
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+}
+.select {
+  background-color: #ffffff;
+  border-left: 2px solid #36AE66;
+  font-weight: bold;
+  color: #36AE66;
+}
+.normal {
+  background-color: #F4F4F4;
+  border-bottom: 1px solid #f2f2f2;
+}
+.right {
+  width: 70%;
+  margin: 0px;
+}
+.shop{
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx;
+}
+.img{
+  width: 80px;
+}
+.shop_new{
+  display: flex;
+  flex-direction: column;
+  padding:10rpx;
+  width: 70%;
+}
+.shop_price{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 100rpx;
+}
+.gm{
+  padding-left: 8px;
+  display: flex;
+  justify-content: space-between;
+  position:fixed;
+  bottom:0;
+  width: 100%;
+  background-color: white;
+  font-size: 15px;
+  align-items: center;
+}
+.buy{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+}
+.num{
+  display: flex;
+  flex-direction: column;
+}
+.button{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.zj{
+  font-size: 12px;
+  margin-top: -20px;
+}
+.cart{
+  display: flex;
+  flex-direction: column;
+}
+.cart_kz{
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 10px;
+}
+.sz{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20rpx;
+}

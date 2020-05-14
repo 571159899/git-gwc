@@ -1,0 +1,154 @@
+  <view>
+
+  	<view class="content">
+  		<view class='left'>
+  			<view class="{{flag==0?'select':'normal'}}" id='0' bindtap='switchNav'>零食类</view>
+  			<view class="{{flag==1?'select':'normal'}}" id='1' bindtap='switchNav'>创意类</view>
+  			<view class="{{flag==2?'select':'normal'}}" id='2' bindtap='switchNav'>心意卡</view>
+  			<view class="{{flag==3?'select':'normal'}}" id='3' bindtap='switchNav'>茶礼盒</view>
+  		</view>
+  		<view class='right'>
+  			<view class='category'>
+  				<swiper current='{{currentTab}}' style='height:500px' vertical="{{true}}">
+  					<swiper-item id='0' catchtouchmove="stopTouchMove">
+  						<!-- 商品卡片开始 -->
+  						<view class="shop" wx:for='{{lingshi}}'>
+  							<view>
+  								<image mode="widthFix" class="img" src="{{item.img}}"></image>
+  							</view>
+  							<view class="shop_new">
+  								<view>{{item.new}}</view>
+  								<view class="shop_price">
+  									<view>{{item.price}}</view>
+  									<view bindtap="showPopup" data-index="{{index}}" class="jia">
+  								{{item.jia}}
+  									</view>
+  								</view>
+  							</view>
+  						</view>
+  						<!-- 商品卡片结束 -->
+  					</swiper-item>
+  					<swiper-item id='1' catchtouchmove="stopTouchMove">
+  						<!-- 商品卡片开始 -->
+  						<view class="shop" wx:for='{{chuangyi}}'>
+  							<view>
+  								<image mode="widthFix" class="img" src="{{item.img}}"></image>
+  							</view>
+  							<view class="shop_new">
+  								<view>{{item.new}}</view>
+  								<view class="shop_price">
+  									<view>{{item.price}}</view>
+  									<view bindtap="showPopup2" data-index="{{index}}">
+  										{{item.jia}}
+  									</view>
+  								</view>
+  							</view>
+  						</view>
+  						<!-- 商品卡片结束 -->
+  					</swiper-item>
+  					<swiper-item id='2' catchtouchmove="stopTouchMove">
+  						<!-- 商品卡片开始 -->
+  						<view class="shop" wx:for='{{xinyi}}'>
+  							<view>
+  								<image mode="widthFix" class="img" src="{{item.img}}"></image>
+  							</view>
+  							<view class="shop_new">
+  								<view>{{item.new}}</view>
+  								<view class="shop_price">
+  									<view>{{item.price}}</view>
+  									<view bindtap="showPopup3" data-index="{{index}}">
+  										{{item.jia}}
+  									</view>
+  								</view>
+  							</view>
+  						</view>
+  						<!-- 商品卡片结束 -->
+  					</swiper-item>
+  					<swiper-item id='3' catchtouchmove="stopTouchMove">
+  						<!-- 商品卡片开始 -->
+  						<view class="shop" wx:for='{{chali}}'>
+  							<view>
+  								<image mode="widthFix" class="img" src="{{item.img}}"></image>
+  							</view>
+  							<view class="shop_new">
+  								<view>{{item.new}}</view>
+  								<view class="shop_price">
+  									<view>{{item.price}}</view>
+  									<view bindtap="showPopup4" data-index="{{index}}">
+  										{{item.jia}}
+  									</view>
+  								</view>
+  							</view>
+  						</view>
+  						<!-- 商品卡片结束 -->
+  					</swiper-item>
+  				</swiper>
+  			</view>
+  		</view>
+  	</view>
+
+  	<!-- 底部结算开始 -->
+  	<view class="gm">
+  		<view>
+  			<image bindtap="showPopup1" mode="widthFix" style="width:2.5rem;height:50px" mode="aspectFit" src="{{bgwc}}"></image>
+  		</view>
+  		<view class="zj">{{zj}}</view>
+  		<view>合计：￥ {{price}}</view>
+  		<view style="width: 50%;">
+  			<button bindtap="tiao" class="btn"><text style="font-size:15px">点击购买</text></button>
+  		</view>
+  	</view>
+  	<!-- 底部结算结束 -->
+  	<!-- 添加购物车弹出层开始 -->
+  	<view>
+  		<van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 50%;">
+  			<!-- 商品卡片开始 -->
+  			<view class="shop">
+  				<view>
+  					<image mode="widthFix" class="img" src="{{lists.img}}"></image>
+  				</view>
+  				<view class="shop_new">
+  					<view>{{lists.new}}</view>
+  					<view>{{lists.price}}</view>
+  				</view>
+  			</view>
+
+  			<!-- 商品卡片结束 -->
+  			<!-- 数量以及步进器开始 -->
+  			<view class="buy">
+  				<view class="num">
+  					<view>购买数量：</view>
+  					<view>剩余706件</view>
+  				</view>
+  				<view>
+  					<van-stepper value="{{ lists.num }}" min="0" bind:change="onChange" data-index1='{{lists.id}}'/>
+  				</view>
+  			</view>
+  			<!-- 数量以及步进器结束 -->
+  			<!-- 购买按钮开始 -->
+  			<button class="button" bindtap="dianji" data-index='{{lists.num}}'>加入购物车</button>
+  			<!-- 购买按钮结束 -->
+  		</van-popup>
+  	</view>
+  	<!-- 添加购物车弹出层结束 -->
+  	<!-- 购物车弹出层开始 -->
+  	<view>
+  		<van-popup show="{{ show1 }}" position="bottom" custom-style="height: 50%;" bind:close="onClose1">
+  			<view class="cart">
+  				<view class="cart_kz">
+  					<view>购物车</view>
+  					<view bindtap="qk">清空</view>
+  				</view>
+  				<view class="sz" wx:for='{{lingshi}}' wx:if='{{item.num}}'>
+  					
+  					<view>{{item.new}}</view>
+						<view>{{item.price*item.num}}</view>
+  					<view>
+  						<van-stepper value="{{ item.num }}" min='0' bind:change="onChange1" data-index1='{{lists.id}}'/>
+  					</view>
+  				</view>
+  			</view>
+  		</van-popup>
+  	</view>
+  	<!-- 购物车弹出层结束 -->
+  </view>

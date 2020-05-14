@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "tabs":"../../comptens/tabs/tabs",
+    "van-sidebar": "@vant/weapp/sidebar/index",
+  "van-sidebar-item": "@vant/weapp/sidebar-item/index",
+  "van-row": "@vant/weapp/row/index",
+  "van-col": "@vant/weapp/col/index",
+  "van-popup": "@vant/weapp/popup/index",
+  "van-stepper": "@vant/weapp/stepper/index"
+  }
+}

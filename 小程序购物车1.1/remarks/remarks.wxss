@@ -1,0 +1,19 @@
+
+.text{
+  width: 96%;
+  height: 10em;
+  padding: 10px;
+  background-color:white;
+  margin-left: 2%;
+  border: 1px solid gainsboro;
+  margin-top: 25rpx;
+}
+page{
+  background: white;
+}
+.btn{
+  width: 96%;
+  margin-left: 2%;
+  margin-top: 30rpx;
+}
+
